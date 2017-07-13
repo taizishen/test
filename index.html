@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>测试iLiveSDK_acitvex</title>
+
+    <link rel="stylesheet" href="jquery/css/jquery-ui.min.css">
+      <script src="jquery/js/jquery.min.js"></script>
+      <script src="jquery/js/jquery-ui.min.js"></script>
+      <link rel="stylesheet" href="jquery/css/style.css">
+    
+    <script type="text/javascript" src="iLiveSDK.js" charset="utf-8"></script>
+    <script type="text/javascript" src="demo.js" charset="utf-8"></script>
+</head>
+<body onload="OnInit()" onunload="OnUninit()">
+    iLiveSDK版本号: <span id="version">版本号</span><br />
+    <object id="iLiveSDKCom" classid="CLSID:54E71417-216D-47A2-9224-C991A099C531" codebase="./iLiveSDK.cab#version=1,1,1,0"></object>
+	<object id="WXVoiceSDKCom" classid="CLSID:596B6424-53B2-458C-B0FC-3B56950BD5A7" codebase="./VoiceSDK.cab#version=1,0,0,0"></object>
+    <br />
+	用户名: <input id="id" type="text" value="yjp"/>
+	密码: <input id="pwd" type="password" value="123"/>
+    <button onclick="OnBtnLogin()">登录</button>
+    <button onclick="OnBtnLogout()">登出</button>
+    <br/>
+    <br/>
+    房间号: <input id="roomid" type="text" value="80001"/>
+    <button onclick="OnBtnCreatRoom()">创建房间</button>
+    <button onclick="OnBtnJoinRoom()">加入房间</button>
+    <button onclick="OnBtnQuitRoom()">退出房间</button>	
+    <label><input name="orientModel" type="checkbox" onclick="onChangeScreenModel(this)" />竖屏开播</label>
+    <br/>
+    <br/>
+    <object id="localRender" classid="CLSID:1EA15A99-7F53-4B6F-8947-B57A0729918E" width="960" height="540"></object>
+    <object id="render1" classid="CLSID:1EA15A99-7F53-4B6F-8947-B57A0729918E" width="208" height="117"></object>
+    <object id="render2" classid="CLSID:1EA15A99-7F53-4B6F-8947-B57A0729918E" width="208" height="117"></object>
+    <object id="render3" classid="CLSID:1EA15A99-7F53-4B6F-8947-B57A0729918E" width="208" height="117"></object>
+    <object id="render4" classid="CLSID:1EA15A99-7F53-4B6F-8947-B57A0729918E" width="208" height="117"></object>
+	<br/>
+    <object id="screenRender" classid="CLSID:1EA15A99-7F53-4B6F-8947-B57A0729918E" width="400" height="225"></object>
+    <br/>
+    <br/>
+    <div id="BeautyLevelText">美颜</div>
+	<br/>
+    <div id="BeautySlider" style="width:300px;"></div>
+    
+	<br/>
+    <div id="WhiteLevelText">美白</div>
+	<br/>
+    <div id="WhiteSlider" style="width:300px;"></div>
+	<br/>
+    
+    <div id="SharpenLevelText">清晰度</div>
+	<br/>
+    <div id="SharpenSlider" style="width:300px;"></div>
+    <br/>
+    <img id="snapshotimg" src="./snapshot.png" width="160"/>
+    <br/>
+    <br/>
+    <button onclick="OnBtnOpenCamera()">打开摄像头</button>
+    <button onclick="OnBtnCloseCamera()">关闭摄像头</button>
+    <button onclick="OnBtnLocalCameraSnapShot()">本地摄像头截图</button>
+    <br/>
+    <br/>
+    <button onclick="OnBtnOpenScreenShareWnd()">分享指定窗口</button>
+    <button onclick="OnBtnOpenScreenShareArea()">分享指定区域</button>
+    X0: <input id="x0" type="text" value="0"/>
+    Y0: <input id="y0" type="text" value="0"/>
+    X1: <input id="x1" type="text" value="0"/>
+    Y1: <input id="y1" type="text" value="0"/>
+    <button onclick="OnBtnChangeScreenShareSize()">修改屏幕分享区域</button>
+    <br/>
+    <br/>
+    <button onclick="OnBtnCloseScreenShare()">关闭屏幕分享</button>
+    <br/>
+    <br/>
+    <button onclick="OnBtnOpenMic()">打开麦克风</button>
+    <button onclick="OnBtnCloseMic()">关闭麦克风</button>
+    <br/>
+    <br/>
+    <button onclick="OnBtnOpenPlayer()">打开扬声器</button>
+    <button onclick="OnBtnClosePlayer()">关闭扬声器</button>
+    <br/>
+    <br/>
+	消息内容: <input id="msg" type="text" value="hello"/>
+	<button onclick="OnBtnSendGroupMessage()">发群消息</button>
+	<br/>
+    <br/>
+	发C2C消息对象: <input id="to" type="text"/>
+	消息内容: <input id="msgC2C" type="text" value="hello"/>
+	<button onclick="OnBtnSendC2CMessage()">发C2C消息</button>
+	<br/>
+    <br/>
+    <button onclick="OnBtnStartRecognizeVoice()">开始语音识别</button>
+    <button onclick="OnBtnStopRecognizeVoice()">结束语音识别</button>
+	<br/>
+    <br/>
+    <button onclick="OnBtnStartPushStream()">开始推流</button>
+    <button onclick="OnBtnStopPushStream()">结束推流</button>
+    <br/>
+    推流地址:<br/>
+    <input id="PushUrl" type="text" style="width:800px; height:70px;" value=""/>
+</body>
+</html>
